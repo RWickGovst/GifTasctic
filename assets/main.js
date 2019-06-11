@@ -13,8 +13,8 @@ function renderButtons() {
     }
     $(document).on("click", ".topic-btn", function (event) {
         var topicName = $(this).attr("data-topicname");
-        
-        var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=uLApXoKhCJXtCH2lOlPkxCj2HQxXeeTf";
+        console.log(topicName);
+        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=uLApXoKhCJXtCH2lOlPkxCj2HQxXeeTf&q=" + topicName + "&limit=10&rating=g";
 
         // Write code between the dashes below to hit the queryURL with $ajax, then take the response data
         $.ajax({
