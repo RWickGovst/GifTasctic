@@ -13,12 +13,13 @@ function renderButtons() {
     }
     $(document).on("click", ".topic-btn", function (event) {
         var topicName = $(this).attr("data-topicname");
+        
         var apiKey = "uLApXoKhCJXtCH2lOlPkxCj2HQxXeeTf";
         
         // console.log(topicName);
         var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + "&q=" + topicName + "&limit=10&rating=pg";
 
-        // Write code between the dashes below to hit the queryURL with $ajax, then take the response data
+        //  ajax call to get gifs, 10 total
         $.ajax({
           url: queryURL,
           method: "GET"
@@ -29,7 +30,7 @@ function renderButtons() {
                 var gifDiv = $("<div>");
                 var topicImage = $("<img>");
                 var rating = results[i].rating;
-                
+                // to display rating
                 var p = $("<p>").text("Rating: " + rating);
                 
                 
@@ -37,7 +38,7 @@ function renderButtons() {
     
                 gifDiv.prepend(p);
                 gifDiv.prepend(topicImage);
-    
+                // newest gifs on top
                 $("#gifs-appear-here").prepend(gifDiv);
               }
 
