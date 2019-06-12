@@ -1,0 +1,44 @@
+body {
+    background-image: url(/Users/Russell/Desktop/GifTastic/assets/images/1080p-HD-Space-Wallpaper-768x432.jpg);
+}
+h1 {
+    color:white;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  
+  /* Create four equal columns that sits next to each other */
+  .column {
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+  }
+  .topic-btn {
+      color:white;
+      background-color: blue;
+  }
+  #add-topic {
+    color:white;
+    background-color: blue;
+  }
+  #topic-input {
+      border: solid 1px black;
+  }
+  /* for the responsive layout */
+  @media screen and (max-width: 800px) {
+    .column {
+      flex: 33%;
+      max-width: 33%;
+    }
+  }
+  
+  /* for the responsive layout */
+  @media screen and (max-width: 600px) {
+    .column {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
