@@ -1,4 +1,4 @@
-var topics = ["Sportbike", "Cruiser", "Touring"];
+var topics = ["Sportbike", "Cruiser", "Touring", "Rocket", "Interceptor"];
 
 function renderButtons() {
   $("#buttons-view").empty();
