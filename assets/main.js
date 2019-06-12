@@ -13,15 +13,33 @@ function renderButtons() {
     }
     $(document).on("click", ".topic-btn", function (event) {
         var topicName = $(this).attr("data-topicname");
-        console.log(topicName);
-        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=uLApXoKhCJXtCH2lOlPkxCj2HQxXeeTf&q=" + topicName + "&limit=10&rating=g";
+        var apiKey = "uLApXoKhCJXtCH2lOlPkxCj2HQxXeeTf";
+        
+        // console.log(topicName);
+        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + "&q=" + topicName + "&limit=10&rating=pg";
 
         // Write code between the dashes below to hit the queryURL with $ajax, then take the response data
         $.ajax({
           url: queryURL,
           method: "GET"
         }).then(function (response) {
-        
+          var results = response.data;  
+          
+          for (var i = 0; i < results.length; i++) {
+                var gifDiv = $("<div>");
+                var topicImage = $("<img>");
+                var rating = results[i].rating;
+                
+                var p = $("<p>").text("Rating: " + rating);
+                
+                
+                topicImage.attr("src", results[i].images.fixed_height.url);
+    
+                gifDiv.prepend(p);
+                gifDiv.prepend(topicImage);
+    
+                $("#gifs-appear-here").prepend(gifDiv);
+              }
 
         });
     });
