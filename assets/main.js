@@ -33,7 +33,14 @@ console.log(results);
       // to display rating
       var p = $("<p>").text("Rating: " + rating);
 
-      topicImage.attr("src", results[i].images.fixed_height.url);
+      topicImage.attr("src" , results[i].images.fixed_height.url);
+      topicImage.attr('data-still', results[i].images.fixed_height_still.url);
+      topicImage.attr('data-animate', results[i].images.fixed_height.url);
+      topicImage.attr('data-state', 'animate');
+      topicImage.addClass("gif");
+      gifDiv.addClass("col-md-3");
+      // gifDiv.addClass("holder");
+  
       // to display rating and gifs
       gifDiv.prepend(p);
       gifDiv.prepend(topicImage);
@@ -51,19 +58,24 @@ $("#add-topic").on("click", function (event) {
   renderButtons();
 });
 // need to pause gifs here
-// $(".gif").on("click", function() {
+$(document).on("click", ".gif", function(){
+  console.log("onclick gif");
 //   // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-//   var state = $(this).attr("data-state");
-//   // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+  var state = $(this).attr("data-state");
+// var stillState = "topics[i].images.480w_still";
+// var animateState = "topics[i];"
+  //   // If the clicked image's state is still, update its src attribute to what its data-animate value is.
 //   // Then, set the image's data-state to animate
 //   // Else set src to the data-still value
-//   if (state === "still") {
-//     $(this).attr("src", $(this).attr("data-animate"));
-//     $(this).attr("data-state", "animate");
-//   } else {
-//     $(this).attr("src", $(this).attr("data-still"));
-//     $(this).attr("data-state", "still");
-//   }
-// });
+if (state === "still") {
+  console.log("changing to animate");
+  $(this).attr("src", $(this).attr("data-animate"));
+  $(this).attr("data-state", "animate");
+} else {
+  console.log("changing to still");
+  $(this).attr("src", $(this).attr("data-still"));
+  $(this).attr("data-state", "still");
+}
+});
 
 renderButtons();
