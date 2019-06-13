@@ -1,7 +1,10 @@
 body {
     background-image: url("images/space.jpg");
-    
+    /* opacity: .8; */
 }
+/* .container{
+  opacity: 1 !important;
+} */
 h1 {
     color:white;
 }
@@ -42,7 +45,7 @@ p {
     color:white;
   }
   /* for the responsive layout */
-  @media screen and (max-width: 800px) {
+  /* @media screen and (max-width: 800px) {
     .column {
       flex: 33%;
       max-width: 33%;
@@ -50,9 +53,9 @@ p {
   }
   
   /* for the responsive layout */
-  @media screen and (max-width: 600px) {
+  /* @media screen and (max-width: 600px) {
     .column {
       flex: 100%;
       max-width: 100%;
     }
-  }
+  }  */

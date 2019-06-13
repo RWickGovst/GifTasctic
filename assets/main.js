@@ -38,7 +38,7 @@ console.log(results);
       topicImage.attr('data-animate', results[i].images.fixed_height.url);
       topicImage.attr('data-state', 'animate');
       topicImage.addClass("gif");
-      gifDiv.addClass("col-md-3");
+      gifDiv.addClass("col-lg-3 col-xl-2 col-md-4 col-sm-6 col-xs-12");
       // gifDiv.addClass("holder");
   
       // to display rating and gifs
